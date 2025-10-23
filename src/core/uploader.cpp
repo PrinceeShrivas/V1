@@ -22,7 +22,6 @@ bool createUploader(const string &userID)
     cout << "Uploader '" << uid << "' created.\n";
     return true;
 }
-
 bool loginUploader(const string &userID)
 {
     string uid = toLower(userID);
@@ -44,7 +43,6 @@ bool loginUploader(const string &userID)
         return false;
     }
 }
-
 void addToUploaderList(const string &uploaderID, int scholarshipID)
 {
     auto it = uploaders.find(uploaderID);
@@ -54,7 +52,6 @@ void addToUploaderList(const string &uploaderID, int scholarshipID)
     n->next = it->second.head;
     it->second.head = n;
 }
-
 void removeFromUploaderList(const string &uploaderID, int scholarshipID)
 {
     auto it = uploaders.find(uploaderID);
@@ -77,7 +74,6 @@ void removeFromUploaderList(const string &uploaderID, int scholarshipID)
         cur = cur->next;
     }
 }
-
 void cleanupUploaders()
 {
     for (auto &p : uploaders)
