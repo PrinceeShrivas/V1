@@ -26,7 +26,6 @@ void seedData()
     addToUploaderList("admin", b.id);
     addToUploaderList("admin", c.id);
 
-    // Sample student data
     extern unordered_map<string, string> studentPasswords;
     students["john"] = Student("john", "John Doe", "john@email.com", 8.5, "Tamil Nadu", "Computer Science",
                                "I am a passionate CS student from a rural background. Despite financial challenges, I have maintained a strong GPA and dream of becoming a software engineer to help my family.",
