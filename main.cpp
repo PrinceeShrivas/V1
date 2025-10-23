@@ -38,7 +38,7 @@ void seedData()
     studentPasswords["priya"] = "priya123";
 }
 
-void displayWelcome()
+void displayWelcome() 
 {
     cout << "=========================================\n";
     cout << "            ScholarMate      \n";
@@ -48,7 +48,7 @@ void displayWelcome()
 
 int main()
 {
-    ios::sync_with_stdio(false);
+    ios::sync_with_stdio(false); // fast io
     cin.tie(nullptr);
 
     displayWelcome();
@@ -72,28 +72,22 @@ int main()
         cout << "3. Save all data to CSV\n";
         cout << "0. Exit\n";
         cout << "===============================\n";
-
         int ch = readInt("Choice: ", true);
-
         if (ch == 0)
             break;
-
         if (ch == 1)
         {
             cout << "\n--- Uploader/Sponsor Portal ---\n";
             string userID = readNonEmptyLine("Enter userID: ");
             string uidLower = toLower(userID);
-
-            if (uploaders.find(uidLower) == uploaders.end())
+            if (uploaders.find(uidLower) == uploaders.end())// could not find it in the uploaders hash map
             {
                 cout << "User does not exist. Creating new uploader.\n";
                 if (!createUploader(uidLower))
                     continue;
             }
-
             if (!loginUploader(uidLower))
                 continue;
-
             uploaderMenuLoop(uidLower);
         }
         else if (ch == 2)
@@ -110,18 +104,13 @@ int main()
         }
     }
 
-    // Auto-save on exit
-    cout << "\nSaving data before exit...\n";
+    cout << "\nSaving data before exit...\n";     // Auto-save on exit
     saveAllData();
-
-    // Cleanup
-    cleanupBST(root);
+    cleanupBST(root);    // Cleanup
     cleanupUploaders();
     cleanupStudents();
-
     cout << "\nThank you for using ScholarMate!\n";
     cout << "Empowering education, one scholarship at a time.\n";
     cout << "Goodbye!\n";
-
     return 0;
 }
